@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+</head>
+<body>
+    用户：<input type="text" id="user" /><br>
+    密码：<input type="password" id="pass" /><br>
+    <input type="button" value="注册" id="reg" />
+    <input type="button" value="登录" id="login" />
+  </body>
+  <script src="static/js/jquery.js"></script>
+  <script>
+  $('#reg').click(async ()=>{
+    let data=await $.ajax({
+      url: 'http://localhost:8012/reg',
+      data: {
+        username: $('#user').val(),
+        password: $('#pass').val(),
+      }
+    });
+
+    alert(data);
+  });
+
+  $('#login').click(async ()=>{
+    let data=await $.ajax({
+      url: 'http://localhost:8012/login',
+      data: {
+        username: $('#user').val(),
+        password: $('#pass').val(),
+      }
+    });
+
+    alert(data);
+  });
+</script>
+</body>
+</html>
